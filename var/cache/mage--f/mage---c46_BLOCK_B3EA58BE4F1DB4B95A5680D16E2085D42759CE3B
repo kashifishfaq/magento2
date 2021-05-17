@@ -1,0 +1,14 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1620771506;s:6:"expire";i:1620857906;s:4:"tags";s:38:"c46_BRAND_LIST,c46_BLOCK_HTML,c46_MAGE";}
+
+<div class="block block-brands-search" data-mage-init='{"Codazon_Shopbybrandpro\/js\/brands":{"codazon.searchBrands":{"brandUrl":"http:\/\/localhost\/magento2\/brands\/index\/searchBrands\/","noResults":"No brand matches your input","resultsS":"There is %1 result.","resultsP":"There are %1 results."}}}'>
+	<div class="block-title"><strong>Search Brands</strong> <a href="http://localhost/magento2/brands/" class="sub-link all-brank-link">All Brands</a></div>
+    <div class="block-content">
+        <div class="brand-search-wrap" >
+            <div class="brand-form" data-role="brand-form">
+                <label class="search-label"></label>
+                <input data-role="brand_name" placeholder="Type brand here" type="text" class="input-text search-input" />
+                <div data-role="list-wrap" class="list-wrap"></div>
+            </div>
+        </div>
+    </div>
+</div>

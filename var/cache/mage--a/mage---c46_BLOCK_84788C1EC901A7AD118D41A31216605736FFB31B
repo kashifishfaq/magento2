@@ -1,0 +1,56 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1621164165;s:6:"expire";i:1621250565;s:4:"tags";s:41:"c46_CDZ_INSTAGRAM,c46_BLOCK_HTML,c46_MAGE";}
+
+<script id="instagram-photos-list-tmpl-60a10085db65d" type="text/x-jquery-tmpl">
+<div class="instagram-photos items owl-carousel" data-mage-init='{"themewidgets":{"codazon.slider":{"sliderConfig":{"nav":true,"dots":false,"loop":true,"stagePadding":50,"lazyLoad":true,"responsive":{"1900":{"items":10},"1600":{"items":9},"1420":{"items":9},"1280":{"items":8},"980":{"items":6},"768":{"items":4},"480":{"items":3},"320":{"items":2.5},"0":{"items":2}},"margin":3}}}}'>
+<% var i = 0, maxI = count - 1; %>
+<% _.each(posts, function(post, id) { %>
+<% var url = 'https://www.instagram.com/p/' + post.node.shortcode %>
+<%= ((i%rows == 0) && (rows > 1)) ? '<div class="item-group">' : ''  %>
+<div class="item photo-item" <%= (rows > 1) ? 'style="margin-bottom:' + sliderMargin + 'px"' : ''  %> >
+    <a data-largeimg="<%- post.node.display_resources[1].src %>" class="photo-item-link abs-img" style="padding-bottom: 100%" href="<%- url %>" target="_blank">
+        <% if (stagePadding) { %>
+        <img alt="" class="img-responsive" src="<%- post.node.thumbnail_resources[1].src %>" />
+        <% } else { %>
+        <img alt="" class="img-responsive owl-lazy" data-src="<%- post.node.thumbnail_resources[1].src %>" />
+        <% } %>
+    </a>
+</div>
+<%= (((i%rows == rows - 1) || (i == (count - 1)) || (i == maxI)) && (rows > 1)) ? '</div>' : ''  %>
+<% i++ %>
+<% }); %>
+</div>
+</script>
+<div id="placeholder-instagram-photos-list-tmpl-60a10085db65d" class="no-loaded">
+    <div class="brand-loader double-bounce-spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>
+</div>
+<script>
+require(['jquery', 'mage/template'], function($, tmpl) {
+    var tmplId = 'instagram-photos-list-tmpl-60a10085db65d', $placeholder = $('#placeholder-' + tmplId), instTmpl = tmpl('#' + tmplId), storageId = 'instagram_data_3893338542_12';
+    var rows = 1, sliderMargin = 3, stagePadding = 50;
+    var renderPhotos = function() {
+        $.ajax({
+            url: 'https://www.instagram.com/graphql/query/?query_hash=e769aa130647d2354c40ea6a439bfc08&variables={"id":"3893338542","first":12}',
+            cache: true,
+            success: function (rs) {
+                if (typeof rs.data == 'undefined') {
+                    var instData = window.localStorage ? window.localStorage[storageId] : false;
+                    if (instData) rs = JSON.parse(instData);
+                }
+                if (typeof rs.data != 'undefined') {
+                    var posts = rs.data.user.edge_owner_to_timeline_media.edges;
+                    if (posts.length) {
+                        $(instTmpl({posts: posts, count: posts.length, sliderMargin: sliderMargin, stagePadding: stagePadding, rows: rows})).insertBefore($placeholder);
+                        $('body').trigger('contentUpdated');
+                    }
+                    window.localStorage[storageId] = JSON.stringify(rs);
+                }
+            }
+        }).always(function() { $placeholder.remove(); });
+    };
+    if ((typeof window.windowLoaded == 'undefined') || window.windowLoaded) {
+        renderPhotos();
+    } else {
+        $(window).load(renderPhotos);
+    }
+});
+</script>

@@ -1,0 +1,8 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1621232850;s:6:"expire";i:1621319250;s:4:"tags";s:33:"c46_CAT_P,c46_BLOCK_HTML,c46_MAGE";}
+
+<div class="no-loaded" data-mage-init='{"Codazon_ProductFilter\/js\/firstload":{"ajaxUrl":"http:\/\/localhost\/magento2\/productfilter\/index\/firstLoad\/","currentUrl":"http:\/\/localhost\/magento2\/","jsonData":{"is_ajax":1,"title":null,"display_type":"all_products","products_count":"14","order_by":"price ASC","show":"thumb,name,description,review,price,addtocart,wishlist,compare,quickshop,label","thumb_width":"325","thumb_height":"325","filter_template":"custom","custom_template":"grid-style-06.phtml","show_slider":"1","conditions_encoded":"^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`414`^]^]","slider_nav":1,"slider_dots":0,"slider_autoplay":0,"slider_autoplay_timeout":null,"total_cols":5,"total_rows":1,"slider_margin":20,"cache_lifetime":86400,"product_ids":null,"cache_key_info":["fbaa55ec31964f84a34fbbc05a23e236"],"items_1900":1,"items_1600":1,"items_1420":1,"items_1280":1,"items_980":1,"items_768":1,"items_480":3.5,"items_320":2.5,"items_0":2.5}}}'>
+    <div class="brand-loader double-bounce-spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>
